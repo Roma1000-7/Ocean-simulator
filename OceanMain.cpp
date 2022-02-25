@@ -1,10 +1,10 @@
 #include "TXLib.h"
-#include <vector>
 #include "OceanOb.h"
 #include "OceanMovingOb.h"
 #include "OceanFixedOb.h"
 #include "Ocean.h"
 #include "OceanFunctions.h"
+#include "OceanCollied.h"
 
 //const int scr_w = 1500, scr_h = 800;
 

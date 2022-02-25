@@ -1,8 +1,8 @@
 //Romashka
-const int scr_w = 1500, scr_h = 800;
 
 #ifndef __MOVING_H__
 #define __MOVING_H__
+const int scr_w = 1500, scr_h = 800;
 
 class MovingOb : public OceanOb{
 protected:
@@ -34,6 +34,10 @@ public:
     Fish(HDC d0, HDC sprite0, double xD0, double yD0, double w0, double h0, double xScr0, double yScr0, double wScr0, double hScr0, double v0, COLORREF bcolor0, int course0 = 0):
         MovingOb(d0, sprite0, xD0, yD0, w0, h0, xScr0, yScr0, wScr0, hScr0, v0, bcolor0, course0)
         {
+            xHB = xD;
+            yHB = yD + h/2.4;
+            wHB = w/1.65;
+            hHB = h/2.53;
         }
     virtual void change() override{
         moving();
@@ -61,6 +65,7 @@ public:
     virtual void draw() const override{
         Win32::TransparentBlt(d, int(xD), int(yD), int(w), int(h), sprite, int(xScr), int(yScr), int(wScr), int(hScr), bcolor);
     }
+    virtual void collied(OceanOb* other) override;
 };
 ///Охотник//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////x Охотник лучший слешер АЗАЗАЗАЗАЗАЗА
 class Hunter : public MovingOb{
@@ -68,6 +73,10 @@ public:
     Hunter(HDC d0, HDC sprite0, double xD0, double yD0, double w0, double h0, double xScr0, double yScr0, double wScr0, double hScr0, double v0, COLORREF bcolor0, int course0 = 0):
         MovingOb(d0, sprite0, xD0, yD0, w0, h0, xScr0, yScr0, wScr0, hScr0, v0, bcolor0, course0)
         {
+            xHB = xD/2.2857;
+            yHB = yD + h/3.75;
+            wHB = w/4;
+            hHB = h/2.3;
         }
     virtual void change() override{
         double MouseX = txMouseX(), MouseY = txMouseY();
@@ -103,6 +112,7 @@ public:
     virtual void draw() const override{
         Win32::TransparentBlt(d, int(xD), int(yD), int(w), int(h), sprite, int(xScr), int(yScr), int(wScr), int(hScr), bcolor);
     }
+    virtual void collied(OceanOb* other) override;
 };
 
 #endif // __MOVING_H__

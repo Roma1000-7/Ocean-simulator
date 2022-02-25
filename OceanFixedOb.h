@@ -15,6 +15,7 @@ public:
     virtual void draw() const override{
         Win32::TransparentBlt(d, int(xD), int(yD), int(w), int(h), sprite, int(xScr), int(yScr), int(wScr), int(hScr), bcolor);
     }
+    virtual void collied(OceanOb* other) override{;}
 };
 ///коралл//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Corall : public OceanOb{
@@ -28,6 +29,7 @@ public:
     virtual void draw() const override{
         Win32::TransparentBlt(d, int(xD), int(yD), int(w), int(h), sprite, int(xScr), int(yScr), int(wScr), int(hScr), bcolor);
     }
+    virtual void collied(OceanOb* other) override{;}
 };
 ///водоросль//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Seaweed : public OceanOb{
@@ -47,6 +49,7 @@ public:
     virtual void draw() const override{
         Win32::TransparentBlt(d, int(xD), int(yD), int(w), int(h), sprite, int(xScr), int(yScr), int(wScr), int(hScr), bcolor);
     }
+    virtual void collied(OceanOb* other) override{;}
 };
 
 #endif // __FIXED_H__

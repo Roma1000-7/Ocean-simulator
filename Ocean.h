@@ -16,6 +16,8 @@ public:
     }
     void add_object(int type, COLORREF bcolor0, HDC d0, HDC sprite0, double xD0, double yD0, double w0, double h0, double xScr0, double yScr0, double wScr0, double hScr0, double v0 = 0, int course0 = 0);
     void update();
+    void checkCollis() const;
+    void removeDead();
 };
 void Ocean::add_object(int type, COLORREF bcolor0,  HDC d0, HDC sprite0, double xD0, double yD0, double w0, double h0, double xScr0, double yScr0, double wScr0, double hScr0, double v0, int course0){
     OceanOb* newOb = nullptr;
@@ -37,6 +39,28 @@ void Ocean::update(){
         ob->change();
         ob->change_sprite();
         ob->draw();
+        checkCollis();
+        removeDead();
+    }
+}
+
+void Ocean::checkCollis() const{
+    for(int i = objects.size(); i > 0; i--){
+        for(int j = objects.size() - 1; j > 0; j--){
+            if(objects[i]->hasCollis(objects[j])){
+                objects[i]->collied(objects[j]);
+                objects[j]->collied(objects[i]);
+            }
+        }
+    }
+}
+
+void Ocean::removeDead(){
+    for(int i = objects.size(); i > 0; i--){
+        if(objects[i]->isDead()){
+            delete objects[i];
+            objects.erase(objects.begin() + i);
+        }
     }
 }
 

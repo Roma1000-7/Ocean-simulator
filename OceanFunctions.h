@@ -81,7 +81,7 @@ void init(Ocean &ocean){
         scale = double(96 + rand()%144);
         ocean.add_object(2, RGB(255, 255, 255), txDC(), corall, double(scr_w / num_of_corall * i + rand()%100), 773 - scale, scale, scale, rand_corall(), 0, 144, 144);
     }
-    ocean.add_object(5, RGB(237, 28, 36), txDC(), shark, double(rand()%scr_w), double(rand()%scr_h), 380, 150, 0, 0, 152, 60, 7);  ///акула/////////////////////////////////////////////
+    ocean.add_object(5, RGB(237, 28, 36), txDC(), shark, double(rand()%scr_w), double(rand()%scr_h), 380, 150, 0, 0, 200, 60, 7);  ///акула/////////////////////////////////////////////
 }
 
 HDC rand_fish(HDC fish, HDC r_fish, HDC b_fish){  //функция рандомного выбора рыбы
